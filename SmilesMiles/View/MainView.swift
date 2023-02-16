@@ -64,13 +64,18 @@ struct WelcomeTitle: View {
 
 struct LoginButton: View {
     var body: some View {
-        Text("Continue with Google")
-            .font(.headline)
-            .foregroundColor(.white)
-            .padding()
-            .frame(width: 220, height: 60)
-            .background(Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.8))
-            .cornerRadius(15.0)
+        HStack {
+            Image(systemName: "g.circle.fill")
+                .font(.headline)
+                .foregroundColor(Color(red: 220/255, green: 78/255, blue: 65/255))
+            Text("Continue with Google")
+                .font(.headline)
+                .foregroundColor(.white)
+        }
+        .padding()
+        .frame(width: 300, height: 60)
+        .background(Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.8))
+        .cornerRadius(15.0)
     }
 }
 

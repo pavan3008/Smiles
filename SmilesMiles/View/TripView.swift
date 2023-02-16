@@ -8,57 +8,60 @@
 import SwiftUI
 
 struct TripView: View {
-    @State private var trips = [String]()
+    @State private var trips = ["New York"]//[String]()
     @State private var searchText = ""
     @State private var isPresentingNewTrip = false
     @State private var selectedTrip: String?
     
-    var body: some View{
+    var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    ForEach(trips.filter { searchText.isEmpty || $0.localizedCaseInsensitiveContains(searchText) }, id: \.self) { trip in
-                        NavigationLink(destination: TripDetail(tripName: trip)) {
-                            Text(trip)
+            ZStack {
+                VStack {
+                    List {
+                        ForEach(trips.filter { searchText.isEmpty || $0.localizedCaseInsensitiveContains(searchText) }, id: \.self) { trip in
+                            NavigationLink(destination: TripDetail(tripName: trip)) {
+                                Text(trip)
+                            }
                         }
+                        .onDelete(perform: deleteTrip)
                     }
-                    .onDelete(perform: deleteTrip)
+                    .navigationBarTitle("Trips")
+                    .navigationBarItems(
+                        trailing:
+                            Button(action: {
+                                // handle profile icon tap
+                            }) {
+                                Image(systemName: "person.circle")
+                            }
+                    )
+                    .searchable(text: $searchText)
                 }
-                .navigationBarTitle("Trips")
-                .navigationBarItems(
-                    trailing:
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
                         Button(action: {
-                            // handle profile icon tap
+                            isPresentingNewTrip = true
                         }) {
-                            Image(systemName: "person.circle")
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .foregroundColor(.green)
+                                .frame(width: 70, height: 70)
+                                .shadow(radius: 3)
                         }
-                )
-                .searchable(text: $searchText)
-                .sheet(isPresented: $isPresentingNewTrip) {
-                    NewTrip(trips: $trips, isPresented: $isPresentingNewTrip)
-                }
-                Spacer()
-
-                    Button(action: {
-                        isPresentingNewTrip = true
-                    }) {
-                        HStack {
-                            Circle()
-                                .fill(Color(#colorLiteral(red: 0.20392157137393951, green: 0.7803921699523926, blue: 0.3490196168422699, alpha: 1)))
-                                .frame(width: 57, height: 57)
-                                .shadow(color: Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3700000047683716)), radius:24, x:4, y:4)
-                                .overlay(
-                                    Image(systemName: "plus")
-                                        .foregroundColor(.white)
-                                )
-                        }
-                        .padding(.bottom, 46)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                        .padding(.trailing, 75)
+                        .padding(.bottom, 40)
                     }
-                    .padding(.trailing, -214.0)
-                    
-                   
+                }
+            }
+            .sheet(isPresented: $isPresentingNewTrip) {
+                NewTrip(trips: $trips, isPresented: $isPresentingNewTrip)
             }
         }
+        .accentColor(.green)
     }
     
     func deleteTrip(at offsets: IndexSet) {
@@ -71,6 +74,3 @@ struct TripView_Previews: PreviewProvider {
         TripView().previewDevice("iPhone 14 Pro Max")
     }
 }
-
-
-

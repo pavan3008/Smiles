@@ -4,6 +4,7 @@
 //
 //  Created by Pavan Sai Nallagoni on 2/13/23.
 //
+
 import SwiftUI
 
 struct TripDetail: View {
@@ -11,29 +12,42 @@ struct TripDetail: View {
     @State private var selectedTab = 0
     
     var body: some View {
-        VStack {
-            TabView(selection: $selectedTab) {
-                TaskList()
-                    .tag(0)
-                BudgetView()
-                    .tag(1)
-                MembersView()
-                    .tag(2)
+        TabView(selection: $selectedTab) {
+            NavigationView {
+                TaskListView()
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .padding(.top)
-            
-            Spacer()
+            .tabItem {
+                Image(systemName: "list.bullet")
+                Text("Tasks")
+            }
+            NavigationView {
+                BudgetView()
+            }
+            .tabItem {
+                Image(systemName: "dollarsign.square.fill")
+                Text("Budget")
+            }
+            NavigationView {
+                MembersView()
+            }
+            .tabItem {
+                Image(systemName: "person.3.fill")
+                Text("Members")
+            }
         }
+        .accentColor(.green)
         .navigationBarTitle(tripName)
+        .navigationBarItems(trailing: Button(action: deleteTrip) {
+            Text("Delete")
+        })
+        .background(Color(UIColor.green))
+    }
+    
+    func deleteTrip() {
+        // Implement the code to delete the current trip here
     }
 }
 
-struct TaskList: View {
-    var body: some View {
-        Text("Tasks")
-    }
-}
 
 struct BudgetView: View {
     var body: some View {
