@@ -11,25 +11,23 @@ struct MainView: View {
     @State private var isActive = false
     var body: some View {
         NavigationStack {
-            GeometryReader{ proxy in
+            GeometryReader { proxy in
                 VStack {
-                    //Smiles
                     Spacer().frame(height: proxy.size.height * 0.25)
                     WelcomeTitle()
                     Spacer().frame(height: proxy.size.height * 0.40)
                     Button(action: {
-                        // Implement Google Sign In Code
+                        //  Implement Google Sign In Code
                         isActive = true
                     }) {
-                        HStack{
+                        HStack {
                             LoginButton()
                         }
-                        // Navigation
+                        //  Navigation
                         .navigationDestination(isPresented: $isActive) {
                             TripView()
                         }
                     }.padding(15)
-                    
                     Spacer()
                 }
                 .frame(

@@ -29,7 +29,9 @@ struct TaskListView: View {
                                 tasks[index].isCompleted.toggle()
                                 tasks.sort(by: { !$0.isCompleted && $1.isCompleted })
                             }
-                        }) {
+                        }
+                        )
+                        {
                             Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
                                 .foregroundColor(.green)
                         }
@@ -58,4 +60,3 @@ struct Task: Identifiable, Equatable {
     let description: String
     var isCompleted: Bool
 }
-

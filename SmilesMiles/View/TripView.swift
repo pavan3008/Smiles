@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct TripView: View {
-    @State private var trips = ["New York"]//[String]()
+    @State private var trips = ["New York"] //  [String]()
     @State private var searchText = ""
     @State private var isPresentingNewTrip = false
     @State private var selectedTrip: String?
-    
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
                     List {
-                        ForEach(trips.filter { searchText.isEmpty || $0.localizedCaseInsensitiveContains(searchText) }, id: \.self) { trip in
+                        let filteredTrips = trips.filter { searchText.isEmpty || $0.localizedCaseInsensitiveContains(searchText) }
+                        
+                        ForEach(filteredTrips, id: \.self) { trip in
                             NavigationLink(destination: TripDetail(tripName: trip)) {
                                 Text(trip)
                             }
                         }
                         .onDelete(perform: deleteTrip)
+                        
                     }
                     .navigationBarTitle("Trips")
                     .navigationBarItems(
@@ -63,7 +65,6 @@ struct TripView: View {
         }
         .accentColor(.green)
     }
-    
     func deleteTrip(at offsets: IndexSet) {
         trips.remove(atOffsets: offsets)
     }
