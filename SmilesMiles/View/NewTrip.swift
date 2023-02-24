@@ -25,10 +25,11 @@ struct NewTrip: View {
                 }
             }
             .navigationBarTitle("New Trip")
-            .navigationBarItems(trailing:
-                                    Button("Cancel") {
-                isPresented = false
-            }
+            .navigationBarItems(
+                trailing:
+                    Button("Cancel") {
+                        isPresented = false
+                    }
             )
         }
     }
