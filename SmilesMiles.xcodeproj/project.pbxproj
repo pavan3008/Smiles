@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B0A2AC1299DC73F005890D4 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A2AC0299DC73F005890D4 /* TaskListView.swift */; };
+		8B5E5E9F299B3832000F3882 /* TripDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5E5E9E299B3832000F3882 /* TripDetail.swift */; };
+		8BD866B22994436300961B52 /* SmilesMilesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD866B12994436300961B52 /* SmilesMilesApp.swift */; };
+		8BD866B42994436300961B52 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD866B32994436300961B52 /* MainView.swift */; };
+		8BD866B62994436500961B52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BD866B52994436500961B52 /* Assets.xcassets */; };
+		8BD866B92994436500961B52 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BD866B82994436500961B52 /* Preview Assets.xcassets */; };
+		8BD866E029947F8500961B52 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD866DF29947F8500961B52 /* TripView.swift */; };
+		8BD866E2299483ED00961B52 /* NewTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD866E1299483ED00961B52 /* NewTrip.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8BD866BF2994436500961B52 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BD866A62994436300961B52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BD866AD2994436300961B52;
+			remoteInfo = SmilesMiles;
+		};
+		8BD866C92994436500961B52 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BD866A62994436300961B52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BD866AD2994436300961B52;
+			remoteInfo = SmilesMiles;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8B0A2AC0299DC73F005890D4 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		8B5E5E9E299B3832000F3882 /* TripDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetail.swift; sourceTree = "<group>"; };
+		8BD866AE2994436300961B52 /* SmilesMiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmilesMiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BD866B12994436300961B52 /* SmilesMilesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmilesMilesApp.swift; sourceTree = "<group>"; };
+		8BD866B32994436300961B52 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8BD866B52994436500961B52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BD866B82994436500961B52 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8BD866BE2994436500961B52 /* SmilesMilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmilesMilesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BD866C82994436500961B52 /* SmilesMilesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmilesMilesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BD866DF29947F8500961B52 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
+		8BD866E1299483ED00961B52 /* NewTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrip.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8BD866AB2994436300961B52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BD866BB2994436500961B52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BD866C52994436500961B52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B5E5EA0299B3A39000F3882 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BD866B32994436300961B52 /* MainView.swift */,
+				8BD866DF29947F8500961B52 /* TripView.swift */,
+				8BD866E1299483ED00961B52 /* NewTrip.swift */,
+				8B5E5E9E299B3832000F3882 /* TripDetail.swift */,
+				8B0A2AC0299DC73F005890D4 /* TaskListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8BD866A52994436300961B52 = {
+			isa = PBXGroup;
+			children = (
+				8BD866B02994436300961B52 /* SmilesMiles */,
+				8BD866AF2994436300961B52 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8BD866AF2994436300961B52 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8BD866AE2994436300961B52 /* SmilesMiles.app */,
+				8BD866BE2994436500961B52 /* SmilesMilesTests.xctest */,
+				8BD866C82994436500961B52 /* SmilesMilesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8BD866B02994436300961B52 /* SmilesMiles */ = {
+			isa = PBXGroup;
+			children = (
+				8BD866B12994436300961B52 /* SmilesMilesApp.swift */,
+				8B5E5EA0299B3A39000F3882 /* View */,
+				8BD866B52994436500961B52 /* Assets.xcassets */,
+				8BD866B72994436500961B52 /* Preview Content */,
+			);
+			path = SmilesMiles;
+			sourceTree = "<group>";
+		};
+		8BD866B72994436500961B52 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8BD866B82994436500961B52 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8BD866AD2994436300961B52 /* SmilesMiles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BD866D22994436500961B52 /* Build configuration list for PBXNativeTarget "SmilesMiles" */;
+			buildPhases = (
+				8BD866AA2994436300961B52 /* Sources */,
+				8BD866AB2994436300961B52 /* Frameworks */,
+				8BD866AC2994436300961B52 /* Resources */,
+				8B7E468429A85E4A00305A15 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmilesMiles;
+			productName = SmilesMiles;
+			productReference = 8BD866AE2994436300961B52 /* SmilesMiles.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8BD866BD2994436500961B52 /* SmilesMilesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BD866D52994436500961B52 /* Build configuration list for PBXNativeTarget "SmilesMilesTests" */;
+			buildPhases = (
+				8BD866BA2994436500961B52 /* Sources */,
+				8BD866BB2994436500961B52 /* Frameworks */,
+				8BD866BC2994436500961B52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BD866C02994436500961B52 /* PBXTargetDependency */,
+			);
+			name = SmilesMilesTests;
+			productName = SmilesMilesTests;
+			productReference = 8BD866BE2994436500961B52 /* SmilesMilesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8BD866C72994436500961B52 /* SmilesMilesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BD866D82994436500961B52 /* Build configuration list for PBXNativeTarget "SmilesMilesUITests" */;
+			buildPhases = (
+				8BD866C42994436500961B52 /* Sources */,
+				8BD866C52994436500961B52 /* Frameworks */,
+				8BD866C62994436500961B52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BD866CA2994436500961B52 /* PBXTargetDependency */,
+			);
+			name = SmilesMilesUITests;
+			productName = SmilesMilesUITests;
+			productReference = 8BD866C82994436500961B52 /* SmilesMilesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8BD866A62994436300961B52 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					8BD866AD2994436300961B52 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					8BD866BD2994436500961B52 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8BD866AD2994436300961B52;
+					};
+					8BD866C72994436500961B52 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8BD866AD2994436300961B52;
+					};
+				};
+			};
+			buildConfigurationList = 8BD866A92994436300961B52 /* Build configuration list for PBXProject "SmilesMiles" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8BD866A52994436300961B52;
+			productRefGroup = 8BD866AF2994436300961B52 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8BD866AD2994436300961B52 /* SmilesMiles */,
+				8BD866BD2994436500961B52 /* SmilesMilesTests */,
+				8BD866C72994436500961B52 /* SmilesMilesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8BD866AC2994436300961B52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BD866B92994436500961B52 /* Preview Assets.xcassets in Resources */,
+				8BD866B62994436500961B52 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BD866BC2994436500961B52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BD866C62994436500961B52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8B7E468429A85E4A00305A15 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8BD866AA2994436300961B52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BD866B42994436300961B52 /* MainView.swift in Sources */,
+				8B5E5E9F299B3832000F3882 /* TripDetail.swift in Sources */,
+				8BD866B22994436300961B52 /* SmilesMilesApp.swift in Sources */,
+				8BD866E029947F8500961B52 /* TripView.swift in Sources */,
+				8BD866E2299483ED00961B52 /* NewTrip.swift in Sources */,
+				8B0A2AC1299DC73F005890D4 /* TaskListView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BD866BA2994436500961B52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BD866C42994436500961B52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BD866C02994436500961B52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BD866AD2994436300961B52 /* SmilesMiles */;
+			targetProxy = 8BD866BF2994436500961B52 /* PBXContainerItemProxy */;
+		};
+		8BD866CA2994436500961B52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BD866AD2994436300961B52 /* SmilesMiles */;
+			targetProxy = 8BD866C92994436500961B52 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8BD866D02994436500961B52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8BD866D12994436500961B52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8BD866D32994436500961B52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SmilesMiles/Preview Content\"";
+				DEVELOPMENT_TEAM = 37NXQVDPN9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smiles.SmilesMiles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8BD866D42994436500961B52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SmilesMiles/Preview Content\"";
+				DEVELOPMENT_TEAM = 37NXQVDPN9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smiles.SmilesMiles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8BD866D62994436500961B52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37NXQVDPN9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smiles.SmilesMilesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmilesMiles.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmilesMiles";
+			};
+			name = Debug;
+		};
+		8BD866D72994436500961B52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37NXQVDPN9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smiles.SmilesMilesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmilesMiles.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmilesMiles";
+			};
+			name = Release;
+		};
+		8BD866D92994436500961B52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37NXQVDPN9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smiles.SmilesMilesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmilesMiles;
+			};
+			name = Debug;
+		};
+		8BD866DA2994436500961B52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37NXQVDPN9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smiles.SmilesMilesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmilesMiles;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8BD866A92994436300961B52 /* Build configuration list for PBXProject "SmilesMiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BD866D02994436500961B52 /* Debug */,
+				8BD866D12994436500961B52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BD866D22994436500961B52 /* Build configuration list for PBXNativeTarget "SmilesMiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BD866D32994436500961B52 /* Debug */,
+				8BD866D42994436500961B52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BD866D52994436500961B52 /* Build configuration list for PBXNativeTarget "SmilesMilesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BD866D62994436500961B52 /* Debug */,
+				8BD866D72994436500961B52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BD866D82994436500961B52 /* Build configuration list for PBXNativeTarget "SmilesMilesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BD866D92994436500961B52 /* Debug */,
+				8BD866DA2994436500961B52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8BD866A62994436300961B52 /* Project object */;
+}
