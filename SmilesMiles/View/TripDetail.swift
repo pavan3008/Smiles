@@ -10,6 +10,7 @@ import SwiftUI
 struct TripDetail: View {
     let tripName: String
     @State private var selectedTab = 0
+    
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationView {
@@ -41,6 +42,7 @@ struct TripDetail: View {
         })
         .background(Color(UIColor.green))
     }
+    
     func deleteTrip() {
         // Implement the code to delete the current trip here
     }

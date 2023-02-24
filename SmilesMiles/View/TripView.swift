@@ -12,6 +12,7 @@ struct TripView: View {
     @State private var searchText = ""
     @State private var isPresentingNewTrip = false
     @State private var selectedTrip: String?
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -63,6 +64,7 @@ struct TripView: View {
         }
         .accentColor(.green)
     }
+    
     func deleteTrip(at offsets: IndexSet) {
         trips.remove(atOffsets: offsets)
     }

@@ -11,6 +11,7 @@ struct NewTrip: View {
     @Binding var trips: [String]
     @Binding var isPresented: Bool
     @State private var name = ""
+    
     var body: some View {
         NavigationView {
             Form {
@@ -31,6 +32,7 @@ struct NewTrip: View {
             )
         }
     }
+    
     func saveTrip() {
         trips.append(name)
         isPresented = false

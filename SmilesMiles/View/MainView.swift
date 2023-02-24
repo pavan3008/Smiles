@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State private var isActive = false
+    
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
