@@ -8,23 +8,18 @@
 import SwiftUI
 
 struct TripView: View {
-    @State private var trips = ["New York"] //  [String]()
-    @State private var searchText = ""
-    @State private var isPresentingNewTrip = false
-    @State private var selectedTrip: String?
-    
+    @ObservedObject private var viewModel = TripViewModel()
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
                     List {
-                        let filteredTrips = trips.filter { searchText.isEmpty || $0.localizedCaseInsensitiveContains(searchText) }
-                        ForEach(filteredTrips, id: \.self) { trip in
-                            NavigationLink(destination: TripDetail(tripName: trip)) {
+                        ForEach(viewModel.filteredTrips(), id: \.self) { trip in
+                            NavigationLink(destination: TripDetail(tripName: trip, trips: $viewModel.trips, numberOfTrips: $viewModel.numberOfTrips)) {
                                 Text(trip)
                             }
                         }
-                        .onDelete(perform: deleteTrip)
+                        .onDelete(perform: viewModel.deleteTrip)
                     }
                     .navigationBarTitle("Trips")
                     .navigationBarItems(
@@ -35,14 +30,14 @@ struct TripView: View {
                                 Image(systemName: "person.circle")
                             }
                     )
-                    .searchable(text: $searchText)
+                    .searchable(text: $viewModel.searchText)
                 }
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
                         Button(action: {
-                            isPresentingNewTrip = true
+                            viewModel.isPresentingNewTrip = true
                         }) {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
@@ -58,15 +53,11 @@ struct TripView: View {
                     }
                 }
             }
-            .sheet(isPresented: $isPresentingNewTrip) {
-                NewTrip(trips: $trips, isPresented: $isPresentingNewTrip)
+            .sheet(isPresented: $viewModel.isPresentingNewTrip) {
+                NewTrip(trips: $viewModel.trips, isPresented: $viewModel.isPresentingNewTrip, numberOfTrips: $viewModel.numberOfTrips)
             }
         }
         .accentColor(.green)
-    }
-    
-    func deleteTrip(at offsets: IndexSet) {
-        trips.remove(atOffsets: offsets)
     }
 }
 

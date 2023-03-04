@@ -10,17 +10,18 @@ import SwiftUI
 struct NewTrip: View {
     @Binding var trips: [String]
     @Binding var isPresented: Bool
-    @State private var name = ""
-    
+    @Binding var numberOfTrips: Int
+    @StateObject var viewModel: NewTripViewModel
+
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Trip Name")) {
-                    TextField("Enter name", text: $name)
+                    TextField("Enter name", text: $viewModel.name)
                 }
                 Section {
                     Button("Save") {
-                        saveTrip()
+                        viewModel.saveTrip()
                     }
                 }
             }
@@ -33,10 +34,12 @@ struct NewTrip: View {
             )
         }
     }
-    
-    func saveTrip() {
-        trips.append(name)
-        isPresented = false
+
+    init(trips: Binding<[String]>, isPresented: Binding<Bool>, numberOfTrips: Binding<Int>) {
+        self._trips = trips
+        self._isPresented = isPresented
+        self._numberOfTrips = numberOfTrips
+        self._viewModel = StateObject(wrappedValue: NewTripViewModel(trips: trips, isPresented: isPresented, numberOfTrips: numberOfTrips))
     }
 }
 
