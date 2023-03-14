@@ -9,13 +9,15 @@ import SwiftUI
 
 struct TripView: View {
     @ObservedObject private var viewModel = TripViewModel()
+    @State private var isPresentingNewTrip = false
+    
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
                     List {
                         ForEach(viewModel.filteredTrips(), id: \.self) { trip in
-                            NavigationLink(destination: TripDetail(tripName: trip, trips: $viewModel.trips, numberOfTrips: $viewModel.numberOfTrips)) {
+                            NavigationLink(destination: TripDetail(tripName: trip, numberOfTrips: $viewModel.numberOfTrips, tripViewModel: viewModel)) {
                                 Text(trip)
                             }
                         }
@@ -27,8 +29,8 @@ struct TripView: View {
                             Button(action: {
                                 // handle profile icon tap
                             }) {
-                                Image(systemName: "person.circle")
-                            }
+                            Image(systemName: "person.circle")
+                        }
                     )
                     .searchable(text: $viewModel.searchText)
                 }
@@ -37,7 +39,7 @@ struct TripView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            viewModel.isPresentingNewTrip = true
+                            isPresentingNewTrip = true
                         }) {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
@@ -53,8 +55,13 @@ struct TripView: View {
                     }
                 }
             }
-            .sheet(isPresented: $viewModel.isPresentingNewTrip) {
-                NewTrip(trips: $viewModel.trips, isPresented: $viewModel.isPresentingNewTrip, numberOfTrips: $viewModel.numberOfTrips)
+            .sheet(isPresented: $isPresentingNewTrip) {
+                NewTrip(viewModel: NewTripViewModel(trips: viewModel.trips, onSave: { tripName in
+                    viewModel.addTrip(tripName)
+                    isPresentingNewTrip = false
+                }, onCancel: {
+                    isPresentingNewTrip = false
+                }))
             }
         }
         .accentColor(.green)

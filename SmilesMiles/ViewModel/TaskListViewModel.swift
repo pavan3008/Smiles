@@ -48,12 +48,6 @@ class TaskListViewModel: ObservableObject {
             tasks.sort(by: { !$0.isCompleted && $1.isCompleted })
         }
     }
-
-    func reset() {
-        tasks = originalTasks
-        searchText = ""
-        newTask = ""
-    }
 }
 
 struct Task: Identifiable, Equatable {

@@ -8,25 +8,29 @@
 import SwiftUI
 
 class NewTripViewModel: ObservableObject {
-    @Binding var trips: [String]
-    @Binding var isPresented: Bool
     @Published var name = ""
-    @Binding var numberOfTrips: Int
-
-    init(trips: Binding<[String]>, isPresented: Binding<Bool>, numberOfTrips: Binding<Int>) {
-        self._trips = trips
-        self._isPresented = isPresented
-        self._numberOfTrips = numberOfTrips
+    @Published var errorMessage = ""
+    @Published var isDuplicateTripName = false
+    @Published var trips: [String]
+    
+    let onSave: (String) -> Void
+    let onCancel: () -> Void
+    
+    init(trips: [String], onSave: @escaping (String) -> Void, onCancel: @escaping () -> Void) {
+        self.trips = trips
+        self.onSave = onSave
+        self.onCancel = onCancel
     }
-
+    
     func saveTrip() {
-        trips.append(name)
-        numberOfTrips += 1
-        isPresented = false
-        reset()
+        if trips.contains(name) {
+            isDuplicateTripName = true
+        } else {
+            onSave(name)
+        }
     }
-
-    func reset() {
-        name = ""
+    
+    func cancel() {
+        onCancel()
     }
 }

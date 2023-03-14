@@ -10,8 +10,8 @@ import SwiftUI
 struct TripDetail: View {
     let tripName: String
     @State private var selectedTab = 0
-    @Binding var trips: [String]
     @Binding var numberOfTrips: Int
+    @ObservedObject var tripViewModel: TripViewModel
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -40,14 +40,14 @@ struct TripDetail: View {
         .accentColor(.green)
         .navigationBarTitle(tripName)
         .navigationBarItems(trailing: Button(action: {
-            let viewModel = TripDetailViewModel(trips: $trips, numberOfTrips: $numberOfTrips, tripName: tripName)
+            let viewModel = TripDetailViewModel(trips: tripViewModel.trips, numberOfTrips: tripViewModel.numberOfTrips, tripName: tripName)
             viewModel.deleteTrip()
         }) {
             Text("Delete")
         })
         .background(Color(UIColor.green))
         .onAppear {
-            let viewModel = TripDetailViewModel(trips: $trips, numberOfTrips: $numberOfTrips, tripName: tripName)
+            let _viewModel = TripDetailViewModel(trips: tripViewModel.trips, numberOfTrips: tripViewModel.numberOfTrips, tripName: tripName)
             // do something with viewModel
         }
     }

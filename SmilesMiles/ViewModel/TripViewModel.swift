@@ -10,9 +10,8 @@ import SwiftUI
 class TripViewModel: ObservableObject {
     @Published var trips: [String] = []
     @Published var searchText = ""
-    @Published var isPresentingNewTrip = false
     @Published var numberOfTrips = 0
-
+    
     func filteredTrips() -> [String] {
         if searchText.isEmpty {
             return trips
@@ -20,13 +19,18 @@ class TripViewModel: ObservableObject {
             return trips.filter { $0.lowercased().contains(searchText.lowercased()) }
         }
     }
-
+    
     func deleteTrip(at offsets: IndexSet) {
         trips.remove(atOffsets: offsets)
     }
-
-    func addTrip(_ trip: String) {
-        trips.append(trip)
-        numberOfTrips += 1
+    
+    func addTrip(_ tripName: String) {
+        if trips.contains(tripName) {
+            // trip name already exists, show error message or handle accordingly
+            print("Error: Trip name already exists.")
+        } else {
+            trips.append(tripName)
+            numberOfTrips += 1
+        }
     }
 }

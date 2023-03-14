@@ -8,38 +8,40 @@
 import SwiftUI
 
 struct NewTrip: View {
-    @Binding var trips: [String]
-    @Binding var isPresented: Bool
-    @Binding var numberOfTrips: Int
-    @StateObject var viewModel: NewTripViewModel
-
+    @ObservedObject var viewModel: NewTripViewModel
+    
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Trip Name")) {
-                    TextField("Enter name", text: $viewModel.name)
+                Section(header: Text("Trip Details")) {
+                    TextField("Trip Name", text: $viewModel.name)
                 }
                 Section {
                     Button("Save") {
                         viewModel.saveTrip()
                     }
+                    .disabled(viewModel.name.isEmpty)
                 }
             }
-            .navigationBarTitle("New Trip")
+            .navigationBarTitle("New Trip", displayMode: .inline)
             .navigationBarItems(
-                trailing:
+                leading:
                     Button("Cancel") {
-                        isPresented = false
+                        viewModel.cancel()
                     }
             )
+            .alert(isPresented: $viewModel.isDuplicateTripName) {
+                Alert(
+                    title: Text("Duplicate Trip Name"),
+                    message: Text("A trip with this name already exists."),
+                    dismissButton: .default(
+                        Text("OK")
+                            .foregroundColor(.green)
+                    )
+                )
+            }
         }
-    }
-
-    init(trips: Binding<[String]>, isPresented: Binding<Bool>, numberOfTrips: Binding<Int>) {
-        self._trips = trips
-        self._isPresented = isPresented
-        self._numberOfTrips = numberOfTrips
-        self._viewModel = StateObject(wrappedValue: NewTripViewModel(trips: trips, isPresented: isPresented, numberOfTrips: numberOfTrips))
+        .accentColor(.green)
     }
 }
 
