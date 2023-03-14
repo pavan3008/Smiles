@@ -47,7 +47,7 @@ struct TripDetail: View {
         })
         .background(Color(UIColor.green))
         .onAppear {
-            let _viewModel = TripDetailViewModel(trips: tripViewModel.trips, numberOfTrips: tripViewModel.numberOfTrips, tripName: tripName)
+            let viewModel = TripDetailViewModel(trips: tripViewModel.trips, numberOfTrips: tripViewModel.numberOfTrips, tripName: tripName)
             // do something with viewModel
         }
     }

@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct TaskListView: View {
-    @StateObject private var viewModel: TaskListViewModel
-
-    init(viewModel: TaskListViewModel = TaskListViewModel()) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
-
+    @StateObject private var viewModel = TaskListViewModel()
+    
     var body: some View {
         VStack {
             HStack {
