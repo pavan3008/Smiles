@@ -8,23 +8,20 @@
 import SwiftUI
 
 struct TripView: View {
-    @State private var trips = ["New York"] //  [String]()
-    @State private var searchText = ""
+    @ObservedObject private var viewModel = TripViewModel()
     @State private var isPresentingNewTrip = false
-    @State private var selectedTrip: String?
     
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
                     List {
-                        let filteredTrips = trips.filter { searchText.isEmpty || $0.localizedCaseInsensitiveContains(searchText) }
-                        ForEach(filteredTrips, id: \.self) { trip in
-                            NavigationLink(destination: TripDetail(tripName: trip)) {
+                        ForEach(viewModel.filteredTrips(), id: \.self) { trip in
+                            NavigationLink(destination: TripDetail(tripName: trip, numberOfTrips: $viewModel.numberOfTrips, tripViewModel: viewModel)) {
                                 Text(trip)
                             }
                         }
-                        .onDelete(perform: deleteTrip)
+                        .onDelete(perform: viewModel.deleteTrip)
                     }
                     .navigationBarTitle("Trips")
                     .navigationBarItems(
@@ -32,10 +29,10 @@ struct TripView: View {
                             Button(action: {
                                 // handle profile icon tap
                             }) {
-                                Image(systemName: "person.circle")
-                            }
+                            Image(systemName: "person.circle")
+                        }
                     )
-                    .searchable(text: $searchText)
+                    .searchable(text: $viewModel.searchText)
                 }
                 VStack {
                     Spacer()
@@ -59,14 +56,15 @@ struct TripView: View {
                 }
             }
             .sheet(isPresented: $isPresentingNewTrip) {
-                NewTrip(trips: $trips, isPresented: $isPresentingNewTrip)
+                NewTrip(viewModel: NewTripViewModel(trips: viewModel.trips, onSave: { tripName in
+                    viewModel.addTrip(tripName)
+                    isPresentingNewTrip = false
+                }, onCancel: {
+                    isPresentingNewTrip = false
+                }))
             }
         }
         .accentColor(.green)
-    }
-    
-    func deleteTrip(at offsets: IndexSet) {
-        trips.remove(atOffsets: offsets)
     }
 }
 

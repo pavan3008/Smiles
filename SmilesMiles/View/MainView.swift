@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var isActive = false
-    
+    @StateObject private var viewModel = MainViewModel()
+
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
@@ -19,13 +19,12 @@ struct MainView: View {
                     Spacer().frame(height: proxy.size.height * 0.40)
                     Button(action: {
                         //  Implement Google Sign In Code
-                        isActive = true
+                        viewModel.signInWithGoogle()
                     }) {
                         HStack {
                             LoginButton()
                         }
-                        //  Navigation
-                        .navigationDestination(isPresented: $isActive) {
+                        .navigationDestination(isPresented: $viewModel.isActive) {
                             TripView()
                         }
                     }.padding(15)
@@ -42,7 +41,7 @@ struct MainView: View {
                         .edgesIgnoringSafeArea(.all)
                 )
             }
-        }.accentColor(.primary)
+        }.accentColor(.green)
     }
 }
 
