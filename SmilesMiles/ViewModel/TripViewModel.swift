@@ -6,6 +6,13 @@
 //
 
 import SwiftUI
+import Foundation
+import Alamofire
+
+struct User: Decodable {
+    let name: String
+    let email: String
+}
 
 class TripViewModel: ObservableObject {
     @Published var trips: [String] = []
@@ -26,11 +33,36 @@ class TripViewModel: ObservableObject {
     
     func addTrip(_ tripName: String) {
         if trips.contains(tripName) {
-            // trip name already exists, show error message or handle accordingly
             print("Error: Trip name already exists.")
         } else {
             trips.append(tripName)
             numberOfTrips += 1
         }
+    }
+    
+    @Published var user: User?
+    
+    func getUserDetails() {
+        guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
+            print("Error: Access token not found in UserDefaults")
+            return
+        }
+        
+        let url = "https://www.googleapis.com/oauth2/v3/userinfo"
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(accessToken)"
+        ]
+        
+        AF.request(url, headers: headers)
+            .validate()
+            .responseDecodable(of: User.self) { response in
+                switch response.result {
+                case .success(let user):
+                    self.user = user
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
     }
 }

@@ -6,28 +6,32 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct MainView: View {
     @StateObject private var viewModel = MainViewModel()
-
+    
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
                 VStack {
                     Spacer().frame(height: proxy.size.height * 0.25)
                     WelcomeTitle()
-                    Spacer().frame(height: proxy.size.height * 0.40)
+                    Spacer().frame(height: proxy.size.height * 0.30)
                     Button(action: {
-                        //  Implement Google Sign In Code
-                        viewModel.signInWithGoogle()
+                        // Implement Google Sign In Code
+                        viewModel.handleSignInButton()
                     }) {
                         HStack {
                             LoginButton()
                         }
-                        .navigationDestination(isPresented: $viewModel.isActive) {
-                            TripView()
-                        }
-                    }.padding(15)
+                        // GoogleSignInButton(action: viewModel.handleSignInButton) // Official Google SignIn button with no customization
+                    }
+                    .navigationDestination(isPresented: $viewModel.isSignedIn) {
+                        TripView(viewModel: viewModel.tripsViewModel)
+                    }
+                    .padding(15)
                     Spacer()
                 }
                 .frame(
@@ -64,9 +68,11 @@ struct LoginButton: View {
     var body: some View {
         HStack {
             Image(systemName: "g.circle.fill")
-                .font(.headline)
-                .foregroundColor(Color(red: 220/255, green: 78/255, blue: 65/255))
-            Text("Continue with Google")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 20, height: 20)
+                .foregroundColor(.red)
+            Text("Sign in with Google")
                 .font(.headline)
                 .foregroundColor(.white)
         }

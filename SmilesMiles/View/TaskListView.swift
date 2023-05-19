@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TaskListView: View {
     @StateObject private var viewModel = TaskListViewModel()
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -39,6 +39,6 @@ struct TaskListView: View {
 
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
-        TripView().previewDevice("iPhone 14 Pro Max")
+        TripView(viewModel: TripViewModel()).previewDevice("iPhone 14 Pro Max")
     }
 }

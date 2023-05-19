@@ -67,6 +67,6 @@ struct MembersView: View {
 
 struct TripDetail_Previews: PreviewProvider {
     static var previews: some View {
-        TripView().previewDevice("iPhone 14 Pro Max")
+        TripView(viewModel: TripViewModel()).previewDevice("iPhone 14 Pro Max")
     }
 }
