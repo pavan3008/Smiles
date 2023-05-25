@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct TripView: View {
-    @ObservedObject private var viewModel = TripViewModel()
+    @ObservedObject var viewModel: TripViewModel
     @State private var isPresentingNewTrip = false
     
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
+                    
+                    if let user = viewModel.user {
+                        Text(user.name)
+                        Text(user.email)
+                        // Display other user details as needed
+                    }
+                    
                     List {
                         ForEach(viewModel.filteredTrips(), id: \.self) { trip in
                             NavigationLink(destination: TripDetail(tripName: trip, numberOfTrips: $viewModel.numberOfTrips, tripViewModel: viewModel)) {
@@ -26,11 +33,12 @@ struct TripView: View {
                     .navigationBarTitle("Trips")
                     .navigationBarItems(
                         trailing:
-                            Button(action: {
-                                // handle profile icon tap
-                            }) {
-                            Image(systemName: "person.circle")
-                        }
+                            Button(action:
+                                    // handle profile icon tap
+                                   viewModel.getUserDetails
+                                  ) {
+                                      Image(systemName: "person.circle")
+                                  }
                     )
                     .searchable(text: $viewModel.searchText)
                 }
@@ -70,6 +78,6 @@ struct TripView: View {
 
 struct TripView_Previews: PreviewProvider {
     static var previews: some View {
-        TripView().previewDevice("iPhone 14 Pro Max")
+        TripView(viewModel: TripViewModel()).previewDevice("iPhone 14 Pro Max")
     }
 }

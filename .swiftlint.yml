@@ -1,0 +1,21 @@
+disabled_rules:
+  - trailing_whitespace
+  - multiple_closures_with_trailing_closure
+  - unused_closure_parameter
+
+opt_in_rules: []
+
+included:
+  - SmilesMiles
+
+excluded:
+  - Carthage
+  - Pods
+  - Resources
+  - Scripts
+  - Vendor
+
+line_length:
+  warning: 200
+
+reporter: "xcode"

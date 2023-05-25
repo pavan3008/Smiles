@@ -12,16 +12,16 @@ class NewTripViewModel: ObservableObject {
     @Published var errorMessage = ""
     @Published var isDuplicateTripName = false
     @Published var trips: [String]
-    
+
     let onSave: (String) -> Void
     let onCancel: () -> Void
-    
+
     init(trips: [String], onSave: @escaping (String) -> Void, onCancel: @escaping () -> Void) {
         self.trips = trips
         self.onSave = onSave
         self.onCancel = onCancel
     }
-    
+
     func saveTrip() {
         if trips.contains(name) {
             isDuplicateTripName = true
@@ -29,7 +29,7 @@ class NewTripViewModel: ObservableObject {
             onSave(name)
         }
     }
-    
+
     func cancel() {
         onCancel()
     }

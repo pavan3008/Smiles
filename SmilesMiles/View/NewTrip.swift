@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewTrip: View {
     @ObservedObject var viewModel: NewTripViewModel
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -47,6 +47,6 @@ struct NewTrip: View {
 
 struct NewTrip_Previews: PreviewProvider {
     static var previews: some View {
-        TripView().previewDevice("iPhone 14 Pro Max")
+        TripView(viewModel: TripViewModel()).previewDevice("iPhone 14 Pro Max")
     }
 }
