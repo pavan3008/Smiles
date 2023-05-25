@@ -17,9 +17,15 @@ struct SmilesMilesApp: App {
                               GIDSignIn.sharedInstance.handle(url)
                             }
                 .onAppear {
-                  GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-                    // Check if `user` exists; otherwise, do something with `error`
-                  }
+                    GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+                        if let user = user {
+                            // User exists, perform further actions
+                            print("Previous sign-in restored for user: \(user)")
+                        } else if let error = error {
+                            // Handle error
+                            print("Error restoring previous sign-in: \(error.localizedDescription)")
+                        }
+                    }
                 }
         }
     }
