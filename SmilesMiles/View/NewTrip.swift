@@ -9,16 +9,23 @@ import SwiftUI
 
 struct NewTrip: View {
     @ObservedObject var viewModel: NewTripViewModel
-
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Trip Details")) {
                     TextField("Trip Name", text: $viewModel.name)
                 }
+                Section(header: Text("Trip Status")) {
+                    Text("In Progress")
+                }
                 Section {
-                    Button("Save") {
+                    Button(action: {
                         viewModel.saveTrip()
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Save")
                     }
                     .disabled(viewModel.name.isEmpty)
                 }
@@ -26,8 +33,11 @@ struct NewTrip: View {
             .navigationBarTitle("New Trip", displayMode: .inline)
             .navigationBarItems(
                 leading:
-                    Button("Cancel") {
+                    Button(action: {
                         viewModel.cancel()
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Cancel")
                     }
             )
             .alert(isPresented: $viewModel.isDuplicateTripName) {

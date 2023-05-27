@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct TripDetail: View {
-    let tripName: String
-    @State private var selectedTab = 0
-    @Binding var numberOfTrips: Int
+    let trip: Trip
     @ObservedObject var tripViewModel: TripViewModel
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        TabView(selection: $selectedTab) {
+        TabView {
             NavigationView {
                 TaskListView()
             }
@@ -38,17 +37,16 @@ struct TripDetail: View {
             }
         }
         .accentColor(.green)
-        .navigationBarTitle(tripName)
+        .navigationBarTitle(trip.tripName)
         .navigationBarItems(trailing: Button(action: {
-            let viewModel = TripDetailViewModel(trips: tripViewModel.trips, numberOfTrips: tripViewModel.numberOfTrips, tripName: tripName)
-            viewModel.deleteTrip()
+            tripViewModel.deleteTrip(tripId: trip.tripID)
+            presentationMode.wrappedValue.dismiss()
         }) {
             Text("Delete")
         })
         .background(Color(UIColor.green))
         .onAppear {
-            let viewModel = TripDetailViewModel(trips: tripViewModel.trips, numberOfTrips: tripViewModel.numberOfTrips, tripName: tripName)
-            // do something with viewModel
+            // do something on appearance
         }
     }
 }

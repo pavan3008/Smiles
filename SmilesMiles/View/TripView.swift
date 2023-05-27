@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct TripView: View {
     @ObservedObject var viewModel: TripViewModel
@@ -15,64 +16,84 @@ struct TripView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    
-                    if let user = viewModel.user {
-                        Text(user.name)
-                        Text(user.email)
-                        // Display other user details as needed
-                    }
-                    
                     List {
-                        ForEach(viewModel.filteredTrips(), id: \.self) { trip in
-                            NavigationLink(destination: TripDetail(tripName: trip, numberOfTrips: $viewModel.numberOfTrips, tripViewModel: viewModel)) {
-                                Text(trip)
+                        ForEach(viewModel.filteredTrips(), id: \.tripID) { trip in
+                            NavigationLink(destination: TripDetail(trip: trip, tripViewModel: viewModel)) {
+                                VStack(alignment: .leading) {
+                                    Text(trip.tripName)
+                                        .font(.headline)
+                                    getProgressBarColor(for: trip.status)
+                                        .frame(height: 8)
+                                        .cornerRadius(4.0)
+                                }
                             }
                         }
-                        .onDelete(perform: viewModel.deleteTrip)
+                        .onDelete { indexSet in
+                            if let index = indexSet.first {
+                                let trip = viewModel.filteredTrips()[index]
+                                viewModel.deleteTrip(tripId: trip.tripID)
+                            }
+                        }
                     }
                     .navigationBarTitle("Trips")
                     .navigationBarItems(
                         trailing:
-                            Button(action:
-                                    // handle profile icon tap
-                                   viewModel.getUserDetails
-                                  ) {
-                                      Image(systemName: "person.circle")
-                                  }
+                            Button(action: {
+                                viewModel.getUserDetails()
+                            }) {
+                                Image(systemName: "person.circle")
+                            }
                     )
                     .searchable(text: $viewModel.searchText)
                 }
-                VStack {
-                    Spacer()
-                    HStack {
+                
+                GeometryReader { geometry in
+                    VStack {
                         Spacer()
-                        Button(action: {
-                            isPresentingNewTrip = true
-                        }) {
-                            Image(systemName: "plus.circle.fill")
-                                .resizable()
-                                .foregroundColor(.green)
-                                .frame(width: 70, height: 70)
-                                .shadow(radius: 3)
+                        HStack {
+                            Spacer()
+                            NavigationLink(destination: NewTrip(viewModel: NewTripViewModel(trips: viewModel, onSave: { message in
+                                print(message)
+                            }, onCancel: {
+                                // Handle cancel action if needed
+                            }))) {
+                                Image(systemName: "plus.circle.fill")
+                                    .resizable()
+                                    .foregroundColor(.green)
+                                    .frame(width: 70, height: 70)
+                                    .shadow(radius: 3)
+                            }
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .shadow(radius: 10)
+                            .padding(.trailing, geometry.size.width * 0.16) // Adjust the padding based on the screen width
+                            .padding(.bottom, geometry.size.height * 0.08) // Adjust the padding based on the screen height
                         }
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .shadow(radius: 10)
-                        .padding(.trailing, 75)
-                        .padding(.bottom, 40)
                     }
                 }
             }
-            .sheet(isPresented: $isPresentingNewTrip) {
-                NewTrip(viewModel: NewTripViewModel(trips: viewModel.trips, onSave: { tripName in
-                    viewModel.addTrip(tripName)
-                    isPresentingNewTrip = false
-                }, onCancel: {
-                    isPresentingNewTrip = false
-                }))
-            }
         }
         .accentColor(.green)
+        .onAppear {
+            viewModel.getUserDetails()
+            viewModel.fetchTrips(for: viewModel.user?.sub ?? "")
+        }
+        .onChange(of: viewModel.user?.sub) { userId in
+            if let userId = userId {
+                viewModel.fetchTrips(for: userId)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func getProgressBarColor(for status: String) -> some View {
+        if status == "Completed" {
+            Rectangle()
+                .foregroundColor(.green)
+        } else {
+            Rectangle()
+                .foregroundColor(.yellow)
+        }
     }
 }
 

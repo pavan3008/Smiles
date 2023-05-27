@@ -9,38 +9,33 @@ import SwiftUI
 import Foundation
 import Alamofire
 
-struct User: Decodable {
-    let name: String
-    let email: String
-}
-
 class TripViewModel: ObservableObject {
-    @Published var trips: [String] = []
+    @Published var trips: [Trip] = []
     @Published var searchText = ""
     @Published var numberOfTrips = 0
+    @Published var user: UserInfo?
     
-    func filteredTrips() -> [String] {
+    func filteredTrips() -> [Trip] {
         if searchText.isEmpty {
             return trips
         } else {
-            return trips.filter { $0.lowercased().contains(searchText.lowercased()) }
+            return trips.filter { $0.tripName.lowercased().contains(searchText.lowercased()) }
         }
     }
     
-    func deleteTrip(at offsets: IndexSet) {
-        trips.remove(atOffsets: offsets)
-    }
+//    func deleteTrip(at offsets: IndexSet) {
+//        trips.remove(atOffsets: offsets)
+//    }
     
-    func addTrip(_ tripName: String) {
-        if trips.contains(tripName) {
-            print("Error: Trip name already exists.")
-        } else {
-            trips.append(tripName)
-            numberOfTrips += 1
-        }
-    }
-    
-    @Published var user: User?
+    //    func addTrip(_ trip: Trip) {
+    //        if trips.contains(where: { $0.tripID == trip.tripID }) {
+    //            print("Error: Trip with ID \(trip.tripID) already exists.")
+    //        } else {
+    //            trips.append(trip)
+    //            numberOfTrips += 1
+    //            print("Number: \(numberOfTrips)")
+    //        }
+    //    }
     
     func getUserDetails() {
         guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
@@ -56,12 +51,110 @@ class TripViewModel: ObservableObject {
         
         AF.request(url, headers: headers)
             .validate()
-            .responseDecodable(of: User.self) { response in
+            .responseDecodable(of: UserInfo.self) { response in
                 switch response.result {
                 case .success(let user):
-                    self.user = user
+                    DispatchQueue.main.async {
+                        self.user = user
+                        print("User details fetched successfully:")
+                        print("Name: \(user.name)")
+                        print("Email: \(user.email)")
+                        print("Sub: \(user.sub)")
+                    }
                 case .failure(let error):
                     print("Error: \(error)")
+                }
+            }
+    }
+    
+    func fetchTrips(for userId: String) {
+        guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
+            print("Error: Access token not found in UserDefaults")
+            return
+        }
+        
+        guard let encodedUserId = userId.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
+            print("Error: Failed to encode the userId")
+            return
+        }
+        
+        print("UserId:\(encodedUserId)")
+        
+        let url = "https://c0clbl0v9h.execute-api.us-west-2.amazonaws.com/prod/users/\(encodedUserId)/trips"
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(accessToken)"
+        ]
+        
+        AF.request(url, headers: headers)
+            .validate()
+            .responseDecodable(of: [Trip].self) { response in
+                switch response.result {
+                case .success(let trips):
+                    DispatchQueue.main.async {
+                        self.trips = trips
+                        self.numberOfTrips = trips.count
+                        print("Fetched trips: \(trips)")
+                    }
+                case .failure(let error):
+                    print("Error: \(error)")
+                    if let data = response.data {
+                        let errorResponse = String(data: data, encoding: .utf8)
+                        print("Error Response: \(errorResponse ?? "")")
+                    }
+                }
+            }
+    }
+    
+    func modifyTrip(tripId: String, tripName: String?, tripStatus: String?, completion: @escaping (Result<Data?, Error>) -> Void) {
+        guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
+            print("Error: Access token not found in UserDefaults")
+            return
+        }
+        
+        let url = "https://c0clbl0v9h.execute-api.us-west-2.amazonaws.com/prod/trips/\(tripId)"
+        
+        var parameters: [String: Any] = [:]
+        if let name = tripName {
+            parameters["trip_name"] = name
+        }
+        if let status = tripStatus {
+            parameters["trip_status"] = status
+        }
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(accessToken)"
+        ]
+        
+        AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+    
+    func deleteTrip(tripId: String) {
+        guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
+            print("Error: Access token not found in UserDefaults")
+            return
+        }
+        
+        let url = "https://c0clbl0v9h.execute-api.us-west-2.amazonaws.com/prod/trips/\(tripId)"
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(accessToken)"
+        ]
+        
+        AF.request(url, method: .delete, headers: headers)
+            .validate()
+            .response { response in
+                if let data = response.data {
+                    print(String(data: data, encoding: .utf8)!)
                 }
             }
     }
