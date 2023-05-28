@@ -18,4 +18,3 @@ struct Trip: Codable, Equatable {
         case status
     }
 }
-

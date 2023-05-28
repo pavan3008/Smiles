@@ -23,20 +23,6 @@ class TripViewModel: ObservableObject {
         }
     }
     
-//    func deleteTrip(at offsets: IndexSet) {
-//        trips.remove(atOffsets: offsets)
-//    }
-    
-    //    func addTrip(_ trip: Trip) {
-    //        if trips.contains(where: { $0.tripID == trip.tripID }) {
-    //            print("Error: Trip with ID \(trip.tripID) already exists.")
-    //        } else {
-    //            trips.append(trip)
-    //            numberOfTrips += 1
-    //            print("Number: \(numberOfTrips)")
-    //        }
-    //    }
-    
     func getUserDetails() {
         guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
             print("Error: Access token not found in UserDefaults")
@@ -106,7 +92,7 @@ class TripViewModel: ObservableObject {
             }
     }
     
-    func modifyTrip(tripId: String, tripName: String?, tripStatus: String?, completion: @escaping (Result<Data?, Error>) -> Void) {
+    func modifyTrip(tripId: String, tripName: String?, tripStatus: String?, completion: @escaping (Result<[Trip]?, Error>) -> Void) {
         guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
             print("Error: Access token not found in UserDefaults")
             return
@@ -126,12 +112,17 @@ class TripViewModel: ObservableObject {
             "Authorization": "Bearer \(accessToken)"
         ]
         
-        AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        AF.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .validate()
-            .response { response in
+            .responseDecodable(of: [Trip].self) { response in
+                debugPrint(response)
                 switch response.result {
-                case .success(let data):
-                    completion(.success(data))
+                case .success(let updatedTrips):
+                    DispatchQueue.main.async {
+                        self.trips = updatedTrips
+                        self.numberOfTrips = updatedTrips.count
+                        completion(.success(updatedTrips))
+                    }
                 case .failure(let error):
                     completion(.failure(error))
                 }
