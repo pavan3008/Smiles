@@ -49,9 +49,3 @@ class TaskListViewModel: ObservableObject {
         }
     }
 }
-
-struct Task: Identifiable, Equatable {
-    let id = UUID()
-    let description: String
-    var isCompleted: Bool
-}

@@ -10,7 +10,7 @@ import SwiftUI
 struct TripDetail: View {
     let trip: Trip
     @ObservedObject var tripViewModel: TripViewModel
-    @Environment(\.presentationMode) var presentationMode
+//    @Environment(\.presentationMode) var presentationMode
     @State private var showingSettings = false
 
     var body: some View {
@@ -18,14 +18,6 @@ struct TripDetail: View {
             NavigationView {
                 TaskListView()
                     .navigationBarTitle("Tasks")
-                    .navigationBarItems(trailing: Button(action: {
-                        showingSettings = true
-                    }) {
-                        Image(systemName: "gearshape")
-                    })
-                    .sheet(isPresented: $showingSettings) {
-                        TripSettings(trip: trip, tripViewModel: tripViewModel)
-                    }
             }
             .tabItem {
                 Image(systemName: "list.bullet")
@@ -47,7 +39,7 @@ struct TripDetail: View {
             
             NavigationView {
                 VStack {
-                    MembersView()
+                    MembersView(tripId: trip.tripID, tripViewModel: tripViewModel)
                 }
                 .navigationBarTitle("Members")
             }
@@ -59,6 +51,14 @@ struct TripDetail: View {
         }
         .accentColor(.green)
         .navigationBarTitle(trip.tripName)
+        .navigationBarItems(trailing: Button(action: {
+            showingSettings = true
+        }) {
+            Image(systemName: "gearshape")
+        })
+        .sheet(isPresented: $showingSettings) {
+            TripSettings(trip: trip, tripViewModel: tripViewModel)
+        }
         .background(Color(UIColor.green))
         .onAppear {
             // do something on appearance
@@ -153,8 +153,16 @@ struct BudgetView: View {
 }
 
 struct MembersView: View {
+    let tripId: String
+    @ObservedObject var tripViewModel: TripViewModel
+
     var body: some View {
-        Text("Members")
+        List(tripViewModel.users, id: \.userId) { user in
+            Text(user.userData.username)
+        }
+        .onAppear {
+            tripViewModel.getUsersForTrip(tripId: tripId)
+        }
     }
 }
 

@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
-import Foundation
 import Alamofire
 
 class TripViewModel: ObservableObject {
+    @Published var user: UserInfo?
     @Published var trips: [Trip] = []
+    @Published var users: [MemberInfo] = []
     @Published var searchText = ""
     @Published var numberOfTrips = 0
-    @Published var user: UserInfo?
-    
+
     func filteredTrips() -> [Trip] {
         if searchText.isEmpty {
             return trips
@@ -146,6 +146,30 @@ class TripViewModel: ObservableObject {
             .response { response in
                 if let data = response.data {
                     print(String(data: data, encoding: .utf8)!)
+                }
+            }
+    }
+    
+    func getUsersForTrip(tripId: String) {
+        guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
+            print("Error: Access token not found in UserDefaults")
+            return
+        }
+        
+        let url = "https://c0clbl0v9h.execute-api.us-west-2.amazonaws.com/prod/trips/\(tripId)/users"
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(accessToken)"
+        ]
+        
+        AF.request(url, headers: headers)
+            .validate()
+            .responseDecodable(of: [MemberInfo].self) { response in
+                switch response.result {
+                case .success(let users):
+                    self.users = users
+                case .failure(let error):
+                    print("Error fetching users: \(error)")
                 }
             }
     }
