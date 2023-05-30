@@ -10,13 +10,12 @@ import SwiftUI
 struct TripDetail: View {
     let trip: Trip
     @ObservedObject var tripViewModel: TripViewModel
-//    @Environment(\.presentationMode) var presentationMode
     @State private var showingSettings = false
 
     var body: some View {
         TabView {
             NavigationView {
-                TaskListView()
+                TaskListView(tripId: trip.tripID, tripViewModel: tripViewModel)
                     .navigationBarTitle("Tasks")
             }
             .tabItem {
@@ -24,7 +23,7 @@ struct TripDetail: View {
                 Text("Tasks")
             }
             .tag(0)
-            
+
             NavigationView {
                 VStack {
                     BudgetView()
@@ -36,7 +35,7 @@ struct TripDetail: View {
                 Text("Budget")
             }
             .tag(1)
-            
+
             NavigationView {
                 VStack {
                     MembersView(tripId: trip.tripID, tripViewModel: tripViewModel)

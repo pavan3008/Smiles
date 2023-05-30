@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct Task: Identifiable, Equatable {
-    let id = UUID()
-    let description: String
-    var isCompleted: Bool
+struct Task: Codable, Equatable {
+    let taskId: String
+    var taskName: String   // Changed to var
+    var taskStatus: String // Changed to var
+    
+    var isCompleted: Bool {
+        return taskStatus == "complete"
+    }
 }
