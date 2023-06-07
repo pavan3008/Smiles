@@ -5,10 +5,14 @@
 //  Created by Pavan Sai Nallagoni on 2/27/23.
 //
 
-import Foundation
 import GoogleSignIn
 import GoogleSignInSwift
 import Alamofire
+
+struct TokenVerifyResponse: Codable {
+    let message: String
+    let userInfo: UserInfo
+}
 
 class MainViewModel: ObservableObject {
     @Published var isSignedIn = false
@@ -61,18 +65,6 @@ class MainViewModel: ObservableObject {
                 print("Sign in failed.")
             }
         }
-    }
-    
-    struct TokenVerifyResponse: Codable {
-        let message: String
-        let userInfo: UserInfo
-    }
-    
-    struct UserInfo: Codable {
-        let email: String
-        let name: String
-        let picture: String
-        let sub: String
     }
     
     func tokenSignIn(idToken: String) {

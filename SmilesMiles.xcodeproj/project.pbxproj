@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B01F1F42A245BD2003A7CD9 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B01F1F32A245BD2003A7CD9 /* TaskModel.swift */; };
 		8B0A2AC1299DC73F005890D4 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A2AC0299DC73F005890D4 /* TaskListView.swift */; };
 		8B10875C2A16EFC800E92AD7 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 8B10875B2A16EFC800E92AD7 /* GoogleSignIn */; };
 		8B10875E2A16EFC800E92AD7 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B10875D2A16EFC800E92AD7 /* GoogleSignInSwift */; };
@@ -18,6 +19,8 @@
 		8B562FC129AD914400A5FFB7 /* TripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B562FC029AD914400A5FFB7 /* TripDetailViewModel.swift */; };
 		8B562FC329AD9CCF00A5FFB7 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B562FC229AD9CCF00A5FFB7 /* TaskListViewModel.swift */; };
 		8B5E5E9F299B3832000F3882 /* TripDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5E5E9E299B3832000F3882 /* TripDetail.swift */; };
+		8BD55F592A22B9EF00072400 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD55F582A22B9EF00072400 /* UserModel.swift */; };
+		8BD55F5B2A22BA0C00072400 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD55F5A2A22BA0C00072400 /* TripModel.swift */; };
 		8BD866B22994436300961B52 /* SmilesMilesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD866B12994436300961B52 /* SmilesMilesApp.swift */; };
 		8BD866B42994436300961B52 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD866B32994436300961B52 /* MainView.swift */; };
 		8BD866B62994436500961B52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BD866B52994436500961B52 /* Assets.xcassets */; };
@@ -44,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B01F1F32A245BD2003A7CD9 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		8B0A2AC0299DC73F005890D4 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		8B1087992A17217500E92AD7 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		8B562FBA29AD8D2600A5FFB7 /* NewTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripViewModel.swift; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 		8B562FC029AD914400A5FFB7 /* TripDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewModel.swift; sourceTree = "<group>"; };
 		8B562FC229AD9CCF00A5FFB7 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 		8B5E5E9E299B3832000F3882 /* TripDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetail.swift; sourceTree = "<group>"; };
+		8BD55F582A22B9EF00072400 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		8BD55F5A2A22BA0C00072400 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		8BD866AE2994436300961B52 /* SmilesMiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmilesMiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD866B12994436300961B52 /* SmilesMilesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmilesMilesApp.swift; sourceTree = "<group>"; };
 		8BD866B32994436300961B52 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -115,6 +121,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8BD55F572A22B9E500072400 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8BD55F582A22B9EF00072400 /* UserModel.swift */,
+				8BD55F5A2A22BA0C00072400 /* TripModel.swift */,
+				8B01F1F32A245BD2003A7CD9 /* TaskModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8BD866A52994436300961B52 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +152,7 @@
 		8BD866B02994436300961B52 /* SmilesMiles */ = {
 			isa = PBXGroup;
 			children = (
+				8BD55F572A22B9E500072400 /* Model */,
 				8BD866B12994436300961B52 /* SmilesMilesApp.swift */,
 				8B5E5EA0299B3A39000F3882 /* View */,
 				8B562FB929AD8D0200A5FFB7 /* ViewModel */,
@@ -319,11 +336,14 @@
 				8B562FC329AD9CCF00A5FFB7 /* TaskListViewModel.swift in Sources */,
 				8B562FBD29AD8D6E00A5FFB7 /* TripViewModel.swift in Sources */,
 				8B5E5E9F299B3832000F3882 /* TripDetail.swift in Sources */,
+				8BD55F592A22B9EF00072400 /* UserModel.swift in Sources */,
 				8BD866B22994436300961B52 /* SmilesMilesApp.swift in Sources */,
 				8B562FC129AD914400A5FFB7 /* TripDetailViewModel.swift in Sources */,
 				8BD866E029947F8500961B52 /* TripView.swift in Sources */,
 				8BD866E2299483ED00961B52 /* NewTrip.swift in Sources */,
+				8BD55F5B2A22BA0C00072400 /* TripModel.swift in Sources */,
 				8B562FBB29AD8D2600A5FFB7 /* NewTripViewModel.swift in Sources */,
+				8B01F1F42A245BD2003A7CD9 /* TaskModel.swift in Sources */,
 				8B0A2AC1299DC73F005890D4 /* TaskListView.swift in Sources */,
 				8B562FBF29AD8F1500A5FFB7 /* MainViewModel.swift in Sources */,
 			);

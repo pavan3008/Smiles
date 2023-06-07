@@ -8,19 +8,19 @@
 import SwiftUI
 
 class TripDetailViewModel: ObservableObject {
-    @Published var trips: [String]
+    @Published var trips: [Trip]
     @Published var numberOfTrips: Int
     
-    let tripName: String
+    let trip: Trip
     
-    init(trips: [String], numberOfTrips: Int, tripName: String) {
+    init(trips: [Trip], numberOfTrips: Int, trip: Trip) {
         self.trips = trips
         self.numberOfTrips = numberOfTrips
-        self.tripName = tripName
+        self.trip = trip
     }
     
     func deleteTrip() {
-        guard let index = trips.firstIndex(of: tripName) else {
+        guard let index = trips.firstIndex(of: trip) else {
             return
         }
         trips.remove(at: index)
