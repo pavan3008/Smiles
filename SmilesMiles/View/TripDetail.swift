@@ -15,7 +15,7 @@ struct TripDetail: View {
     var body: some View {
         TabView {
             NavigationView {
-                TaskListView(tripId: trip.tripID, tripViewModel: tripViewModel)
+                TaskListView(tripId: trip.tripId, tripViewModel: tripViewModel)
                     .navigationBarTitle("Tasks")
             }
             .tabItem {
@@ -38,7 +38,7 @@ struct TripDetail: View {
 
             NavigationView {
                 VStack {
-                    MembersView(tripId: trip.tripID, tripViewModel: tripViewModel)
+                    MembersView(tripId: trip.tripId, tripViewModel: tripViewModel)
                 }
                 .navigationBarTitle("Members")
             }
@@ -109,7 +109,7 @@ struct TripSettings: View {
                 }
                 Section {
                     Button(action: {
-                        tripViewModel.modifyTrip(tripId: trip.tripID, tripName: modifiedTripName, tripStatus: modifiedTripStatus) { result in
+                        tripViewModel.modifyTrip(tripId: trip.tripId, tripName: modifiedTripName, tripStatus: modifiedTripStatus) { result in
                             switch result {
                             case .success(let result):
                                 // Handle success, update UI or perform any necessary actions

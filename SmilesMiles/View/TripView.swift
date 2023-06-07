@@ -17,7 +17,7 @@ struct TripView: View {
             ZStack {
                 VStack {
                     List {
-                        ForEach(viewModel.filteredTrips(), id: \.tripID) { trip in
+                        ForEach(viewModel.filteredTrips(), id: \.tripId) { trip in
                             NavigationLink(destination: TripDetail(trip: trip, tripViewModel: viewModel)) {
                                 VStack(alignment: .leading) {
                                     Text(trip.tripName)
@@ -31,7 +31,7 @@ struct TripView: View {
                         .onDelete { indexSet in
                             if let index = indexSet.first {
                                 let trip = viewModel.filteredTrips()[index]
-                                viewModel.deleteTrip(tripId: trip.tripID)
+                                viewModel.deleteTrip(tripId: trip.tripId)
                             }
                         }
                     }

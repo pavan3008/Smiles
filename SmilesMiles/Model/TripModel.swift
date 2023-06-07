@@ -6,12 +6,12 @@
 //
 
 struct Trip: Codable, Equatable {
-    let tripID: String
-    let tripName: String
-    let status: String
+    let tripId: String
+    var tripName: String
+    var status: String
     
     enum CodingKeys: String, CodingKey {
-        case tripID = "PK"
+        case tripId = "PK"
         case tripName
         case status
     }
