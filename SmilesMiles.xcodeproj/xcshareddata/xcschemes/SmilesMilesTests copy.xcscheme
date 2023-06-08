@@ -53,15 +53,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8BD866AD2994436300961B52"
-            BuildableName = "SmilesMiles.app"
-            BlueprintName = "SmilesMiles"
-            ReferencedContainer = "container:SmilesMiles.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
