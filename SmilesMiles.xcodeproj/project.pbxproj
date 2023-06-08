@@ -13,6 +13,8 @@
 		8B10875E2A16EFC800E92AD7 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B10875D2A16EFC800E92AD7 /* GoogleSignInSwift */; };
 		8B1087632A16F27200E92AD7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8B1087622A16F27200E92AD7 /* Alamofire */; };
 		8B10879A2A17217500E92AD7 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1087992A17217500E92AD7 /* Secrets.swift */; };
+		8B1176B42A328C3B0047C02D /* SmilesMiles.app in Resources */ = {isa = PBXBuildFile; fileRef = 8BD866AE2994436300961B52 /* SmilesMiles.app */; };
+		8B1176B52A328C3F0047C02D /* SmilesMilesTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 8BD866BE2994436500961B52 /* SmilesMilesTests.xctest */; };
 		8B3F51FD2A31628F005F13EB /* SmilesMilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F51FC2A31628F005F13EB /* SmilesMilesTests.swift */; };
 		8B3F52002A316518005F13EB /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 8B3F51FF2A316518005F13EB /* GoogleSignIn */; };
 		8B3F52022A316518005F13EB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B3F52012A316518005F13EB /* GoogleSignInSwift */; };
@@ -278,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BD866B92994436500961B52 /* Preview Assets.xcassets in Resources */,
+				8B1176B42A328C3B0047C02D /* SmilesMiles.app in Resources */,
 				8BD866B62994436500961B52 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B1176B52A328C3F0047C02D /* SmilesMilesTests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
