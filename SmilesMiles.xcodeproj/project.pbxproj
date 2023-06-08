@@ -13,6 +13,10 @@
 		8B10875E2A16EFC800E92AD7 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B10875D2A16EFC800E92AD7 /* GoogleSignInSwift */; };
 		8B1087632A16F27200E92AD7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8B1087622A16F27200E92AD7 /* Alamofire */; };
 		8B10879A2A17217500E92AD7 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1087992A17217500E92AD7 /* Secrets.swift */; };
+		8B3F51FD2A31628F005F13EB /* SmilesMilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F51FC2A31628F005F13EB /* SmilesMilesTests.swift */; };
+		8B3F52002A316518005F13EB /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 8B3F51FF2A316518005F13EB /* GoogleSignIn */; };
+		8B3F52022A316518005F13EB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B3F52012A316518005F13EB /* GoogleSignInSwift */; };
+		8B3F52042A316518005F13EB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8B3F52032A316518005F13EB /* Alamofire */; };
 		8B562FBB29AD8D2600A5FFB7 /* NewTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B562FBA29AD8D2600A5FFB7 /* NewTripViewModel.swift */; };
 		8B562FBD29AD8D6E00A5FFB7 /* TripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B562FBC29AD8D6E00A5FFB7 /* TripViewModel.swift */; };
 		8B562FBF29AD8F1500A5FFB7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B562FBE29AD8F1500A5FFB7 /* MainViewModel.swift */; };
@@ -50,6 +54,7 @@
 		8B01F1F32A245BD2003A7CD9 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		8B0A2AC0299DC73F005890D4 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		8B1087992A17217500E92AD7 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		8B3F51FC2A31628F005F13EB /* SmilesMilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmilesMilesTests.swift; sourceTree = "<group>"; };
 		8B562FBA29AD8D2600A5FFB7 /* NewTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripViewModel.swift; sourceTree = "<group>"; };
 		8B562FBC29AD8D6E00A5FFB7 /* TripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewModel.swift; sourceTree = "<group>"; };
 		8B562FBE29AD8F1500A5FFB7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -84,6 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B3F52042A316518005F13EB /* Alamofire in Frameworks */,
+				8B3F52002A316518005F13EB /* GoogleSignIn in Frameworks */,
+				8B3F52022A316518005F13EB /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +105,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B3F51FA2A3161C7005F13EB /* SmilesMilesTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B3F51FC2A31628F005F13EB /* SmilesMilesTests.swift */,
+			);
+			path = SmilesMilesTests;
+			sourceTree = "<group>";
+		};
+		8B3F51FE2A316518005F13EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8B562FB929AD8D0200A5FFB7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,7 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				8BD866B02994436300961B52 /* SmilesMiles */,
+				8B3F51FA2A3161C7005F13EB /* SmilesMilesTests */,
 				8BD866AF2994436300961B52 /* Products */,
+				8B3F51FE2A316518005F13EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,6 +236,11 @@
 				8BD866C02994436500961B52 /* PBXTargetDependency */,
 			);
 			name = SmilesMilesTests;
+			packageProductDependencies = (
+				8B3F51FF2A316518005F13EB /* GoogleSignIn */,
+				8B3F52012A316518005F13EB /* GoogleSignInSwift */,
+				8B3F52032A316518005F13EB /* Alamofire */,
+			);
 			productName = SmilesMilesTests;
 			productReference = 8BD866BE2994436500961B52 /* SmilesMilesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -248,11 +278,11 @@
 					};
 					8BD866BD2994436500961B52 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1430;
 						TestTargetID = 8BD866AD2994436300961B52;
 					};
 					8BD866C72994436500961B52 = {
 						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 8BD866AD2994436300961B52;
 					};
 				};
 			};
@@ -353,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B3F51FD2A31628F005F13EB /* SmilesMilesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +589,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 37NXQVDPN9;
@@ -567,6 +599,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = smiles.SmilesMilesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "SmilesMilesTests/SmilesMilesTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmilesMiles.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmilesMiles";
@@ -578,6 +612,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 37NXQVDPN9;
@@ -587,6 +622,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = smiles.SmilesMilesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "SmilesMilesTests/SmilesMilesTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmilesMiles.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmilesMiles";
@@ -604,10 +640,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = smiles.SmilesMilesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SmilesMiles;
 			};
 			name = Debug;
 		};
@@ -622,10 +658,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = smiles.SmilesMilesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SmilesMiles;
 			};
 			name = Release;
 		};
@@ -701,6 +737,21 @@
 			productName = GoogleSignInSwift;
 		};
 		8B1087622A16F27200E92AD7 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B1087612A16F27100E92AD7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		8B3F51FF2A316518005F13EB /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B10875A2A16EFC700E92AD7 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		8B3F52012A316518005F13EB /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B10875A2A16EFC700E92AD7 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		8B3F52032A316518005F13EB /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8B1087612A16F27100E92AD7 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
