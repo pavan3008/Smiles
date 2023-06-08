@@ -8,36 +8,36 @@ Info.plist
 SmilesMiles/Info.plist
 
 ## User settings
-xcuserdata/
+# xcuserdata/
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
 *.xccheckout
 
 ## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
-build/
-DerivedData/ 
-*.moved-aside
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
+# build/
+# DerivedData/ 
+# *.moved-aside
+# *.pbxuser
+# !default.pbxuser
+# *.mode1v3
+# !default.mode1v3
+# *.mode2v3
+# !default.mode2v3
+# *.perspectivev3
+# !default.perspectivev3
 
 ## Obj-C/Swift specific
-*.hmap
+# *.hmap
 
 ## App packaging
-*.ipa
-*.dSYM.zip
-*.dSYM
+# *.ipa
+# *.dSYM.zip
+# *.dSYM
 
 ## Playgrounds
-timeline.xctimeline
-playground.xcworkspace
+# timeline.xctimeline
+# playground.xcworkspace
 
 # Swift Package Manager
 #
@@ -51,7 +51,7 @@ playground.xcworkspace
 # hence it is not needed unless you have added a package configuration file to your project
 # .swiftpm
 
-.build/
+# .build/
 
 # CocoaPods
 #
