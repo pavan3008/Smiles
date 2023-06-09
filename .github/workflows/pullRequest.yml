@@ -14,11 +14,11 @@ jobs:
         uses: actions/checkout@master
       - name: Build
         run: |
-          xcodebuild clean build -project SmilesMiles.xcodeproj -scheme SmilesMiles -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild build -project SmilesMiles.xcodeproj -scheme SmilesMiles -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
         env: 
          destination: ${{ matrix.destination }}
       - name: Test
         run: |
-          xcodebuild clean test -project SmilesMiles.xcodeproj -scheme SmilesMilesTests -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild test -project SmilesMiles.xcodeproj -scheme SmilesMilesTests -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
         env: 
          destination: ${{ matrix.destination }}

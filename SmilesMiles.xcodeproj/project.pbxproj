@@ -50,10 +50,11 @@
 		8B562FBE29AD8F1500A5FFB7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8B562FC029AD914400A5FFB7 /* TripDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewModel.swift; sourceTree = "<group>"; };
 		8B562FC229AD9CCF00A5FFB7 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
-		8B5A38492A3293A5000E8DC5 /* SmilesMiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = SmilesMiles.app; path = "/Users/pavan/Desktop/SmilesMiles 2/build/Debug-iphoneos/SmilesMiles.app"; sourceTree = "<absolute>"; };
-		8B5A384F2A32957F000E8DC5 /* SmilesMilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SmilesMilesTests.xctest; path = "/Users/pavan/Desktop/SmilesMiles 2/build/Debug-iphoneos/SmilesMilesTests.xctest"; sourceTree = "<absolute>"; };
 		8B5A38512A32957F000E8DC5 /* SmilesMilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmilesMilesTests.swift; sourceTree = "<group>"; };
 		8B5E5E9E299B3832000F3882 /* TripDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetail.swift; sourceTree = "<group>"; };
+		8B8C52502A329FAF00584D62 /* SmilesMiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmilesMiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8C52512A329FAF00584D62 /* SmilesMilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmilesMilesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8C52522A32A13900584D62 /* SmilesMiles.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmilesMiles.entitlements; sourceTree = "<group>"; };
 		8BD55F582A22B9EF00072400 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8BD55F5A2A22BA0C00072400 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		8BD866B12994436300961B52 /* SmilesMilesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmilesMilesApp.swift; sourceTree = "<group>"; };
@@ -141,12 +142,15 @@
 				8BD866B02994436300961B52 /* SmilesMiles */,
 				8B3F51FA2A3161C7005F13EB /* SmilesMilesTests */,
 				8B5A38502A32957F000E8DC5 /* SmilesMilesTests */,
+				8B8C52502A329FAF00584D62 /* SmilesMiles.app */,
+				8B8C52512A329FAF00584D62 /* SmilesMilesTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
 		8BD866B02994436300961B52 /* SmilesMiles */ = {
 			isa = PBXGroup;
 			children = (
+				8B8C52522A32A13900584D62 /* SmilesMiles.entitlements */,
 				8BD55F572A22B9E500072400 /* Model */,
 				8BD866B12994436300961B52 /* SmilesMilesApp.swift */,
 				8B5E5EA0299B3A39000F3882 /* View */,
@@ -184,7 +188,7 @@
 			);
 			name = SmilesMilesTests;
 			productName = SmilesMilesTests;
-			productReference = 8B5A384F2A32957F000E8DC5 /* SmilesMilesTests.xctest */;
+			productReference = 8B8C52512A329FAF00584D62 /* SmilesMilesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		8BD866AD2994436300961B52 /* SmilesMiles */ = {
@@ -207,7 +211,7 @@
 				8B1087622A16F27200E92AD7 /* Alamofire */,
 			);
 			productName = SmilesMiles;
-			productReference = 8B5A38492A3293A5000E8DC5 /* SmilesMiles.app */;
+			productReference = 8B8C52502A329FAF00584D62 /* SmilesMiles.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -490,6 +494,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SmilesMiles/SmilesMiles.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SmilesMiles/Preview Content\"";
@@ -509,6 +515,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smiles.SmilesMiles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -520,6 +527,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SmilesMiles/SmilesMiles.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SmilesMiles/Preview Content\"";
@@ -539,6 +548,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smiles.SmilesMiles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
