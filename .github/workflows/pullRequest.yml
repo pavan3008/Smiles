@@ -14,11 +14,17 @@ jobs:
         uses: actions/checkout@master
       - name: Build
         run: |
-          xcodebuild build -project SmilesMiles.xcodeproj -scheme SmilesMiles -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild build \
+          -workspace SmilesMiles.xcodeproj/project.xcworkspace \
+          -scheme "SmilesMiles" \
+          -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest'
         env: 
          destination: ${{ matrix.destination }}
       - name: Test
         run: |
-          xcodebuild test -project SmilesMiles.xcodeproj -scheme SmilesMilesTests -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild test \
+          -workspace SmilesMiles.xcodeproj/project.xcworkspace \
+          -scheme "SmilesMilesTest" \
+          -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest'
         env: 
          destination: ${{ matrix.destination }}
