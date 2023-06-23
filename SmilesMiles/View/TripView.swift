@@ -16,35 +16,21 @@ struct TripView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    List {
-                        ForEach(viewModel.filteredTrips(), id: \.tripId) { trip in
-                            NavigationLink(destination: TripDetail(trip: trip, tripViewModel: viewModel)) {
-                                VStack(alignment: .leading) {
-                                    Text(trip.tripName)
-                                        .font(.headline)
-                                    getProgressBarColor(for: trip.status)
-                                        .frame(height: 8)
-                                        .cornerRadius(4.0)
-                                }
-                            }
-                        }
-                        .onDelete { indexSet in
-                            if let index = indexSet.first {
-                                let trip = viewModel.filteredTrips()[index]
-                                viewModel.deleteTrip(tripId: trip.tripId)
-                            }
-                        }
+                    if viewModel.isLoading {
+                        ProgressView()
+                    } else {
+                        tripsList
+                            .navigationBarTitle("Trips")
+                            .navigationBarItems(
+                                trailing:
+                                    Button(action: {
+                                        viewModel.getUserDetails()
+                                    }) {
+                                        Image(systemName: "person.circle")
+                                    }
+                            )
+                            .searchable(text: $viewModel.searchText)
                     }
-                    .navigationBarTitle("Trips")
-                    .navigationBarItems(
-                        trailing:
-                            Button(action: {
-                                viewModel.getUserDetails()
-                            }) {
-                                Image(systemName: "person.circle")
-                            }
-                    )
-                    .searchable(text: $viewModel.searchText)
                 }
                 
                 GeometryReader { geometry in
@@ -77,6 +63,7 @@ struct TripView: View {
         .onAppear {
             viewModel.getUserDetails()
             viewModel.fetchTrips(for: viewModel.user?.sub ?? "")
+            
         }
         .onChange(of: viewModel.user?.sub) { userId in
             if let userId = userId {
@@ -93,6 +80,29 @@ struct TripView: View {
         } else {
             Rectangle()
                 .foregroundColor(.yellow)
+        }
+    }
+    
+    @ViewBuilder
+    private var tripsList: some View {
+        List {
+            ForEach(viewModel.filteredTrips(), id: \.tripId) { trip in
+                NavigationLink(destination: TripDetail(trip: trip, tripViewModel: viewModel)) {
+                    VStack(alignment: .leading) {
+                        Text(trip.tripName)
+                            .font(.headline)
+                        getProgressBarColor(for: trip.status)
+                            .frame(height: 8)
+                            .cornerRadius(4.0)
+                    }
+                }
+            }
+            .onDelete { indexSet in
+                if let index = indexSet.first {
+                    let trip = viewModel.filteredTrips()[index]
+                    viewModel.deleteTrip(tripId: trip.tripId)
+                }
+            }
         }
     }
 }

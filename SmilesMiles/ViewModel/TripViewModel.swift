@@ -14,7 +14,8 @@ class TripViewModel: ObservableObject {
     @Published var users: [MemberInfo] = []
     @Published var searchText = ""
     @Published var numberOfTrips = 0
-
+    @Published var isLoading = true
+    
     func filteredTrips() -> [Trip] {
         if searchText.isEmpty {
             return trips
@@ -77,11 +78,12 @@ class TripViewModel: ObservableObject {
             .responseDecodable(of: [Trip].self) { response in
                 switch response.result {
                 case .success(let trips):
-                    DispatchQueue.main.async {
+                            
                         self.trips = trips
                         self.numberOfTrips = trips.count
+                        self.isLoading = false
                         print("Fetched trips: \(trips)")
-                    }
+                 
                 case .failure(let error):
                     print("Error: \(error)")
                     if let data = response.data {
@@ -92,7 +94,7 @@ class TripViewModel: ObservableObject {
             }
     }
     
-    func modifyTrip(tripId: String, tripName: String?, tripStatus: String?, completion: @escaping (Result<[Trip]?, Error>) -> Void) {
+    func modifyTrip(tripId: String, tripName: String?, tripStatus: String?) {
         guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
             print("Error: Access token not found in UserDefaults")
             return
@@ -118,13 +120,10 @@ class TripViewModel: ObservableObject {
                 debugPrint(response)
                 switch response.result {
                 case .success(let updatedTrips):
-                    DispatchQueue.main.async {
-                        self.trips = updatedTrips
-                        self.numberOfTrips = updatedTrips.count
-                        completion(.success(updatedTrips))
-                    }
+                    self.trips = updatedTrips
+                    self.numberOfTrips = updatedTrips.count
                 case .failure(let error):
-                    completion(.failure(error))
+                   print(error)
                 }
             }
     }

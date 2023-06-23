@@ -109,17 +109,7 @@ struct TripSettings: View {
                 }
                 Section {
                     Button(action: {
-                        tripViewModel.modifyTrip(tripId: trip.tripId, tripName: modifiedTripName, tripStatus: modifiedTripStatus) { result in
-                            switch result {
-                            case .success(let result):
-                                // Handle success, update UI or perform any necessary actions
-                                print("Trip modified successfully: \(String(describing: result))")
-
-                            case .failure(let error):
-                                // Handle error, display an error message or perform any necessary actions
-                                print("Error modifying trip: \(error)")
-                            }
-                        }
+                        tripViewModel.modifyTrip(tripId: trip.tripId, tripName: modifiedTripName, tripStatus: modifiedTripStatus)
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Save")
